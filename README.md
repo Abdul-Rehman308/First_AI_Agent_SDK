@@ -30,12 +30,22 @@ uv run main.py
 
 Add your Gemini API key to a `.env` file in the project root:
 
-```
-GEMINI_API_KEY=your_gemini_api_key_here
-```
+## OpenRouter Integration
+
+This project uses [OpenRouter](https://openrouter.ai/) as the API gateway for accessing various AI models.
+
+**How to use:**
+- Get your OpenRouter API key from [OpenRouter Dashboard](https://openrouter.ai/).
+- Add it to your `.env` file like this:
+  ```
+  OPENROUTER_API_KEY=your_openrouter_api_key_here
+  ```
+- The agent is configured to connect to OpenRouter’s API endpoint and can use any supported model available on OpenRouter.
+
+**Example model in use:**  
+`deepseek/deepseek-r1-0528-qwen3-8b:free`
 
 ## Developer
-
 **Syed AR**
 
 ---
