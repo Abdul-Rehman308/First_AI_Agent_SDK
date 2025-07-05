@@ -6,17 +6,19 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Get Gemini API Key from .env
-gemini_api_key = os.getenv("GEMINI_API_KEY")
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+if not openrouter_api_key:
+    raise ValueError("OPENROUTER_API_KEY is not set in the environment variables.")
 
 # Initialize OpenAI Client with Gemini endpoint
 external_client = AsyncOpenAI(
-    api_key=gemini_api_key,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+    api_key=openrouter_api_key,
+    base_url="https://openrouter.ai/api/v1",   
 )
 
 # Setup Model
 model = OpenAIChatCompletionsModel(
-    model="gemini-2.0-flash",
+    model="deepseek/deepseek-r1-0528-qwen3-8b:free",
     openai_client=external_client
 )
 
